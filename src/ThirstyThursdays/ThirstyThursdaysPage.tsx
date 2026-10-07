@@ -604,9 +604,9 @@ export function ThirstyThursdaysPage(props: ThirstyThursdaysPageProps) {
             </h1>
             <p className="tt-hero__tag">Music. Community. Impact.</p>
             <p className="tt-hero__lead">
-              A monthly night at <VenueLink venue={venue} /> bringing together DJs, performers,
-              local LGBTQIA+ organizations, and the San Diego community to have a great time while
-              supporting causes that matter.
+              On the third Thursday of every month, we bring together DJs, performers, local
+              LGBTQIA+ organizations, and the San Diego community at <VenueLink venue={venue} /> to
+              have a great time while supporting causes that matter.
             </p>
             <p className="tt-hero__give">{HUNDRED_PERCENT}</p>
 
@@ -944,7 +944,7 @@ export function ThirstyThursdaysPage(props: ThirstyThursdaysPageProps) {
           <p className="tt-footer__name">Thirsty Thursdays</p>
           <p className="tt-footer__tag">Music. Community. Impact.</p>
           <p className="tt-muted">
-            A monthly community event at <VenueLink venue={venue} /> in San Diego.
+            A community event on the third Thursday of every month at <VenueLink venue={venue} /> in San Diego.
           </p>
           <p className="tt-footer__give">
             100% of ticket sales and guest donations benefit each event’s featured organization.

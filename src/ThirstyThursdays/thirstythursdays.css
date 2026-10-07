@@ -483,7 +483,7 @@
 }
 
 .tt-hero__lead {
-  max-width: 40rem;
+  max-width: 45rem;
   margin-top: 1.5rem;
   font-size: clamp(1.05rem, 1.8vw, 1.25rem);
   color: #d9d4e2;
