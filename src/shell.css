@@ -1,0 +1,11 @@
+/* Demo shell only: page-level styles that the host site would normally own. */
+html,
+body {
+  margin: 0;
+  background: #000;
+}
+
+body {
+  font-family:
+    system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}

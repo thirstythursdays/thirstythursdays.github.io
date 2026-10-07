@@ -1,0 +1,12 @@
+{
+  "name": "thirsty-thursdays-contact",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-01-01",
+  "workers_dev": true,
+  "vars": {
+    "FROM_EMAIL": "Thirsty Thursdays <onboarding@resend.dev>",
+    // Add the final domain here (https://<anotherdomain>.com) once it's known, then redeploy.
+    "ALLOWED_ORIGINS": "https://thirstythursdays.github.io,http://localhost:5173,http://127.0.0.1:5173,http://localhost:4173"
+  },
+  "observability": { "enabled": true }
+}
