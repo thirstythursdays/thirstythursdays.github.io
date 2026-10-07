@@ -31,6 +31,8 @@ export interface TTEvent {
   time: string;
   /** Posh event page. */
   ticketUrl?: string;
+  /** Event flyer, shown in the hero while this is the next event. Clicking it goes to `ticketUrl`. Portrait (4:5) or square both work. */
+  flyer?: { src: string; alt?: string };
   /** Leave unset until announced; the event then shows as "coming soon". */
   organization?: Organization;
   /** DJ / performer names. */
@@ -90,6 +92,7 @@ export const defaultContent: ThirstyThursdaysContent = {
       date: '2027-01-21',
       time: '21:00',
       // ticketUrl: 'https://posh.vip/e/...',
+      // flyer: { src: flyerImage }, // import the flyer from ./assets; clicking it opens ticketUrl
       organization: {
         name: '[Organization Name]',
         description:

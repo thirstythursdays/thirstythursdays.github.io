@@ -32,6 +32,7 @@ Props are shallow-merged over the defaults, so pass a whole `venue` or `contact`
 
 - **Events** are data-driven. Past dates drop off automatically. An event with no `organization` shows under "Future Events" as coming soon; adding an `organization` promotes it to a full card.
 - **Tickets**: set `ticketUrl` (the Posh page) on an event. Until then, "Get Tickets" scrolls to the events list.
+- **Flyers**: set `flyer: { src }` on an event. The next event's flyer shows in the hero under the date and buttons, and clicking it goes to the same place as Get Tickets. No `flyer`, no slot.
 - **Our Impact** is hidden unless `showImpact` is true.
 - **Contact form** posts to a Cloudflare Worker (`worker/` in the source repo, not part of this folder). The Worker checks the Cloudflare Turnstile token, then emails the message via Resend. The destination address is a Worker secret, so it never appears in the page. Configure with `form.endpoint` and `form.turnstileSiteKey`.
   - The Turnstile widget only works on hostnames registered for the site key, and the Worker only accepts requests from `ALLOWED_ORIGINS` (`worker/wrangler.jsonc`). **When the page moves to its final domain, add that domain in both places.**

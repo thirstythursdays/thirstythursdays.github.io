@@ -92,7 +92,7 @@
 }
 
 .tt-section {
-  padding-block: clamp(64px, 9vw, 112px);
+  padding-block: clamp(44px, 5.8vw, 74px);
   scroll-margin-top: calc(var(--tt-nav-top, 0px) + var(--tt-nav-h));
 }
 
@@ -444,7 +444,7 @@
 
 .tt-hero {
   position: relative;
-  padding-block: clamp(40px, 7vw, 88px) clamp(64px, 9vw, 120px);
+  padding-block: clamp(0px, 1vw, 12px) clamp(44px, 5.8vw, 74px);
   text-align: center;
   background:
     radial-gradient(60% 55% at 50% 0%, rgba(167, 92, 240, 0.3), transparent 70%),
@@ -499,6 +499,31 @@
   color: var(--tt-gold);
   font-weight: 700;
   line-height: 1.4;
+}
+
+.tt-hero__flyer {
+  display: block;
+  width: min(100%, 440px);
+  margin-top: clamp(32px, 5vw, 48px);
+  border-radius: 16px;
+  overflow: hidden;
+  line-height: 0;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.14),
+    0 24px 70px rgba(167, 92, 240, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tt-hero__flyer:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.24),
+    0 28px 80px rgba(255, 79, 163, 0.35);
+}
+
+.tt-hero__flyer img {
+  width: 100%;
+  height: auto;
 }
 
 .tt-hero__next {
@@ -1061,7 +1086,8 @@
   }
 
   .tt-btn--primary:hover,
-  .tt-card:hover {
+  .tt-card:hover,
+  .tt-hero__flyer:hover {
     transform: none;
   }
 }

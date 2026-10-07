@@ -27,7 +27,7 @@ const ID = {
 } as const;
 
 const NAV: { label: string; to: string }[] = [
-  { label: 'About', to: ID.about },
+  { label: 'Our Mission', to: ID.about },
   { label: 'Events', to: ID.events },
   { label: 'Organizations', to: ID.organizations },
   { label: 'DJs', to: ID.djs },
@@ -86,14 +86,16 @@ function isHttp(url: string) {
 function JumpLink(props: {
   to: string;
   className?: string;
+  ariaLabel?: string;
   onNavigate?: () => void;
   children: ReactNode;
 }) {
-  const { to, className, onNavigate, children } = props;
+  const { to, className, ariaLabel, onNavigate, children } = props;
   return (
     <a
       href={`#${to}`}
       className={className}
+      aria-label={ariaLabel}
       onClick={(e) => {
         e.preventDefault();
         onNavigate?.();
@@ -105,13 +107,19 @@ function JumpLink(props: {
   );
 }
 
-function ExtLink(props: { href: string; className?: string; children: ReactNode }) {
-  const { href, className, children } = props;
+function ExtLink(props: {
+  href: string;
+  className?: string;
+  ariaLabel?: string;
+  children: ReactNode;
+}) {
+  const { href, className, ariaLabel, children } = props;
   const external = isHttp(href);
   return (
     <a
       href={href}
       className={className}
+      aria-label={ariaLabel}
       {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
     >
       {children}
@@ -119,20 +127,34 @@ function ExtLink(props: { href: string; className?: string; children: ReactNode 
   );
 }
 
-/** Ticket CTA: goes to the Posh page when we have one, otherwise to the events list. */
-function TicketButton(props: { event?: TTEvent; className: string; label?: string }) {
-  const { event, className, label = 'Get Tickets' } = props;
+/** Anything that means "get tickets": goes to the Posh page when we have one, otherwise to the events list. */
+function TicketLink(props: {
+  event?: TTEvent;
+  className: string;
+  ariaLabel?: string;
+  children: ReactNode;
+}) {
+  const { event, className, ariaLabel, children } = props;
   if (event?.ticketUrl) {
     return (
-      <ExtLink href={event.ticketUrl} className={className}>
-        {label}
+      <ExtLink href={event.ticketUrl} className={className} ariaLabel={ariaLabel}>
+        {children}
       </ExtLink>
     );
   }
   return (
-    <JumpLink to={ID.events} className={className}>
-      {label}
+    <JumpLink to={ID.events} className={className} ariaLabel={ariaLabel}>
+      {children}
     </JumpLink>
+  );
+}
+
+function TicketButton(props: { event?: TTEvent; className: string; label?: string }) {
+  const { event, className, label = 'Get Tickets' } = props;
+  return (
+    <TicketLink event={event} className={className}>
+      {label}
+    </TicketLink>
   );
 }
 
@@ -601,10 +623,20 @@ export function ThirstyThursdaysPage(props: ThirstyThursdaysPageProps) {
 
             <div className="tt-actions tt-actions--center">
               <TicketButton event={next} className="tt-btn tt-btn--primary" />
-              <JumpLink to={ID.about} className="tt-btn tt-btn--ghost">
-                Learn More
-              </JumpLink>
             </div>
+
+            {next?.flyer && (
+              <TicketLink
+                event={next}
+                className="tt-hero__flyer"
+                ariaLabel={`Get tickets for Thirsty Thursdays on ${formatDate(next.date)}`}
+              >
+                <img
+                  src={next.flyer.src}
+                  alt={next.flyer.alt ?? `Flyer for Thirsty Thursdays on ${formatDate(next.date)}`}
+                />
+              </TicketLink>
+            )}
           </div>
         </section>
 
