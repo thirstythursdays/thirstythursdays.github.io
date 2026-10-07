@@ -32,6 +32,7 @@ const NAV: { label: string; to: string }[] = [
   { label: 'Organizations', to: ID.organizations },
   { label: 'DJs', to: ID.djs },
   { label: 'Get Involved', to: ID.involved },
+  { label: 'Venue', to: ID.venue },
   { label: 'Contact', to: ID.contact },
 ];
 
