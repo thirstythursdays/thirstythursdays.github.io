@@ -16,6 +16,8 @@ export interface ArtistLink {
 export interface Artist {
   name: string;
   bio?: string;
+  /** Square-ish photo URL (imported asset or hosted). Falls back to an initial if unset. */
+  image?: string;
   links?: ArtistLink[];
 }
 
@@ -118,9 +120,9 @@ export const defaultContent: ThirstyThursdaysContent = {
 
   artists: [
     {
-      name: '[DJ / Performer Name]',
-      bio: '[Optional one-line bio or style description.]',
-      links: [{ label: 'Instagram', url: '#' }],
+      name: '5 a.m. Club',
+      bio: 'Local San Diego house DJ who’s played at Nova, Bloom, Spin, and Avenue PB.',
+      links: [{ label: 'Instagram', url: 'https://www.instagram.com/5amclub_music/' }],
     },
     {
       name: '[DJ / Performer Name]',

@@ -826,6 +826,17 @@
   border-radius: 50%;
 }
 
+.tt-card__photo {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid transparent;
+  background:
+    linear-gradient(#000, #000) padding-box,
+    var(--tt-grad) border-box;
+}
+
 .tt-card .tt-textcta {
   margin-top: auto;
   padding-top: 0.5rem;

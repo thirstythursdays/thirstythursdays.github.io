@@ -257,9 +257,13 @@ function OrgCard({ org }: { org: Organization }) {
 function ArtistCard({ artist }: { artist: Artist }) {
   return (
     <article className="tt-card">
-      <div className="tt-card__mark tt-card__mark--round" aria-hidden="true">
-        {artist.name.replace(/[^A-Za-z0-9]/g, '').charAt(0) || '♪'}
-      </div>
+      {artist.image ? (
+        <img className="tt-card__photo" src={artist.image} alt="" width={96} height={96} loading="lazy" />
+      ) : (
+        <div className="tt-card__mark tt-card__mark--round" aria-hidden="true">
+          {artist.name.replace(/[^A-Za-z0-9]/g, '').charAt(0) || '♪'}
+        </div>
+      )}
       <h4 className="tt-card__title">{artist.name}</h4>
       {artist.bio && <p className="tt-muted">{artist.bio}</p>}
       {artist.links && artist.links.length > 0 && (
