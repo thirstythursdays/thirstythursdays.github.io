@@ -1,3 +1,5 @@
+import fiveAmClub from './assets/5amclub.jpg';
+
 // All editable content lives here (or is passed in as props), so events,
 // organizations, and artists can be added without touching the page structure.
 // Values in [brackets] are placeholders from the copy doc awaiting real info.
@@ -121,6 +123,7 @@ export const defaultContent: ThirstyThursdaysContent = {
   artists: [
     {
       name: '5 a.m. Club',
+      image: fiveAmClub,
       bio: 'Local San Diego house DJ who’s played at Nova, Bloom, Spin, and Avenue PB.',
       links: [{ label: 'Instagram', url: 'https://www.instagram.com/5amclub_music/' }],
     },
