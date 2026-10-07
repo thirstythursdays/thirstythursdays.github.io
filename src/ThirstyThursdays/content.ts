@@ -1,4 +1,5 @@
 import fiveAmClub from './assets/5amclub.jpg';
+import flyerPlaceholder from './assets/flyer-placeholder.svg';
 
 // All editable content lives here (or is passed in as props), so events,
 // organizations, and artists can be added without touching the page structure.
@@ -92,7 +93,7 @@ export const defaultContent: ThirstyThursdaysContent = {
       date: '2027-01-21',
       time: '21:00',
       // ticketUrl: 'https://posh.vip/e/...',
-      // flyer: { src: flyerImage }, // import the flyer from ./assets; clicking it opens ticketUrl
+      flyer: { src: flyerPlaceholder }, // placeholder; swap for the real flyer image
       organization: {
         name: '[Organization Name]',
         description:
